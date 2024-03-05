@@ -1,0 +1,52 @@
+// Image container styles
+.image {
+    background-size: cover;
+    background-position: center;
+    object-fit: cover;
+    object-position: center;
+    width: 100%;
+    height: 60vh;
+}
+
+// Mat icon styles
+.mat-icon {
+    padding-top: 2px;
+    background-color: transparent;
+    border: none;
+}
+
+// Form container styles
+form {
+    display: flex;
+    flex-direction: column;
+
+    // Label styles
+    label {
+        margin-bottom: 10px;
+    }
+
+    // Input field styles
+    input[type="url"],
+    input[type="text"] {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+    }
+
+    // Submit button styles
+    button[type="submit"] {
+        padding: 10px;
+        background-color: #007bff;
+        color: #fff;
+        width: 10%;
+        border: none;
+        border-radius: 3px;
+        margin: 20px 0;
+        cursor: pointer;
+        // Button hover styles
+        &:hover {
+            background-color: #0056b3;
+        }
+    }
+}

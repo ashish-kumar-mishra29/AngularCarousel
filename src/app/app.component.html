@@ -1,0 +1,85 @@
+<div class="container">
+  <h1>{{ title }}</h1>
+
+  <div class="carousel">
+    <div
+      id="carouselExampleIndicators"
+      class="carousel slide"
+      data-ride="carousel"
+    >
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img
+            class="image"
+            [src]="carouselSlides[currentIndex].imageUrl"
+            alt="slide"
+          />
+          <div class="carousel-caption d-none d-md-block">
+            <h5>{{ carouselSlides[currentIndex].caption }}</h5>
+          </div>
+          <a
+          
+            class="carousel-control-prev"
+            role="button"
+            data-slide="prev"
+            (click)="prev()"
+          >
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only"></span>
+          </a>
+          <a
+            class="carousel-control-next"
+            role="button"
+            data-slide="next"
+            (click)="next()"
+          >
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only"></span>
+          </a>
+        </div>
+      </div>
+
+      <div class="container mt-5">
+        <h4>Added Slides</h4>
+        <div class="slides">
+          <ul>
+            <li *ngFor="let slide of carouselSlides; let i = index">
+              <span>Slide - {{ i + 1 }}</span>
+              <button
+                *ngIf="carouselSlides.length > 1"
+                class="mat-icon"
+                (click)="deleteSlide(i)"
+              >
+                <mat-icon>delete</mat-icon>
+              </button>
+            </li>
+          </ul>
+        </div>
+
+        <h4>Add new Slide</h4>
+
+        <form [formGroup]="slideForm" (ngSubmit)="addSlide()" #form="ngForm">
+          <div>
+            <label for="imageUrl">Image URL:</label>
+            <input
+              type="url"
+              id="imageUrl"
+              placeholder="https://upload.org/1920px-TEIDE.JPG"
+              formControlName="imageUrl"
+            />
+          </div>
+          <div>
+            <label for="caption">Slide Caption</label>
+            <input
+              type="text"
+              id="caption"
+              placeholder="Singapore is another great hosting city"
+              formControlName="caption"
+            />
+          </div>
+          <button type="submit" [disabled]="!slideForm.valid">Add Slide</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
